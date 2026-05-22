@@ -1,6 +1,14 @@
-﻿namespace Practical_18.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Practical_18.Models;
 
-public class AppDbContext
+namespace Practical_18.Data;
+
+public class ApplicationDbContext : DbContext
 {
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
 
+    public DbSet<Student> Students { get; set; }
 }
